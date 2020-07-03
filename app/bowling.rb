@@ -19,14 +19,22 @@ class Bowling
   def score(result = 0, current_roll = 0)
     10.times do
       result += @rolls[current_roll] + @rolls[current_roll + 1]
-      result += @rolls[current_roll + 2] if spare?(current_roll)
+      if spare?(current_roll)
+        result += @rolls[current_roll + 2]
+      elsif strike?(current_roll)
+        result += @rolls[current_roll + 2]
+        current_roll -= 1
+      end
       current_roll += 2
     end
-
     result
   end
 
   def spare?(current_roll)
     @rolls[current_roll] + @rolls[current_roll + 1] == 10
+  end
+
+  def strike?(current_roll)
+    @rolls[current_roll] == 10
   end
 end
