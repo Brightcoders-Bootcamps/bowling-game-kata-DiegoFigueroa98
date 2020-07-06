@@ -2,7 +2,7 @@
 
 require_relative '../app/bowling.rb'
 
-describe 'Bowling game logic' do
+describe 'Bowling game logic withou Spares and Strikes' do
   before do
     @game = Bowling.new
   end
@@ -16,7 +16,9 @@ describe 'Bowling game logic' do
     @game.roll_many_same_score(20, 1)
     expect(@game.score).to eq(20)
   end
+end
 
+describe 'Bowling game logic with Spares and Strikes' do
   it('Can get score of a game with a spare') do
     @game.roll_many_same_score(2, 5)
     @game.roll(1)
@@ -40,5 +42,4 @@ describe 'Bowling game logic' do
     @game.roll_many_same_score(12, 10)
     expect(@game.score).to eq(300)
   end
-
 end
