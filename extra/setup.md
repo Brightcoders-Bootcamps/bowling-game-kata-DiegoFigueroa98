@@ -4,4 +4,7 @@
 bundle install
 
 ## Use the following command to run the challenge tests
-rspec spec/bowling_spec.rb
+bundle exec rspec spec/bowling_spec.rb
+
+## Use the following command to check the rubycritic score
+bundle exec rubycritic app/ bundle exec rubycritic spec/bowling_spec.rb
