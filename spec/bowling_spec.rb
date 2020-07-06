@@ -19,6 +19,10 @@ describe 'Bowling game logic withou Spares and Strikes' do
 end
 
 describe 'Bowling game logic with Spares and Strikes' do
+  before do
+    @game = Bowling.new
+  end
+
   it('Can get score of a game with a spare') do
     @game.roll_many_same_score(2, 5)
     @game.roll(1)
